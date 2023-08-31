@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>BOARD</title>
+<style type="text/css">
+@charset "UTF-8";
+@font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+table {	
+	font-family: 'Pretendard-Regular';
+	margin: 0 auto;
+	width: 1000px;
+	height: auto;
+	border-top: 2px solid #616161;
+	border-collapse: collapse; 
+}
+
+th {
+	padding: 5px;
+	border-bottom: 1px solid #BDBDBD;
+	border-top: thick;
+	background-color: #c2d8ff;
+}
+
+td {
+	padding: 5px;
+	text-align: center;
+	border-bottom: 1px solid #c0c0c0;
+}
+
+.tr_row:hover {
+	background-color: #EEEEEE;
+	font: bolder;
+	cursor: pointer;
+}
+
+.paging {
+	width: 1000px;
+	height: 100px;
+	margin: 30px auto 0;
+	text-align: center;
+}
+
+.paging button {
+	margin: 5px;
+	width: 25px;
+	height: 25px;
+}
+
+.paging button:hover {
+	cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+	<h1 class="title">📒 BOARD</h1>
+		[[${list}]]
+	<table>
+		<tr>
+			<th>번호</th>
+			<th>제목</th>
+			<th>작성자</th>
+			<th>작성일</th>
+			<th>조회수</th>
+		</tr>
+		<tr th:each="row : ${list}" class="tr_row">
+			<td>[[${row.bno}]]</td>
+			<td style="text-align: left;">[[${row.btitle}]]</td>
+			<td>[(${row.bcontent})]</td>
+			<td>[[${row.mname}]]</td>
+		</tr>
+	</table>
+	<div class = "paging">
+		<th:block th:each=" i : ${#numbers.sequence(1,10)} ">
+			<button th:onclick="|location.href='@{./board(pageNo=${i})}'|">[[${i}]]</button>
+		</th:block>
+	</div>
+</body>
+</html>
