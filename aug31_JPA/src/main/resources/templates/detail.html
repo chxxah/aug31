@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{./css/thymeleaf.css}">
+</head>
+<body>
+	<th:block th:insert="~{/menu.html :: menu}"></th:block>
+	<div ></div>
+	<h1>상세보기</h1>
+	[[${detail}]]
+			<div th:text="${detail.bno}"></div>
+			<!-- <div th:text="${member.mname}"></div>
+			<div th:text="${row.bdate}"></div>
+			<div th:text="${row.btitle}"></div>
+			<div th:text="${row.bcontent}"></div> -->
+</body>
+</html>

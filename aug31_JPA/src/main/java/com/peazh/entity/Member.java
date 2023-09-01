@@ -1,4 +1,6 @@
-package com.peazh.web;
+package com.peazh.entity;
+
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,11 +31,11 @@ public class Member {
 	private String mid;
 	
 	//컬럼 종류 명시
-	@Column(columnDefinition = "TEXT")
+	@Column(nullable=false, columnDefinition = "TEXT")
 	private String mpw;
 	
 	@Column(columnDefinition = "TIMESTAMP")
-	private String mjoindate;
+	private LocalDateTime mjoindate;
 	
 	
 	
